@@ -17,7 +17,7 @@ export default function ChatWidget() {
         className="cursor-pointer bg-red-800 hover:bg-red-900 rounded-full shadow-lg flex items-center gap-2 px-4 py-3"
       >
         <MessageCircle className="w-5 h-5" />
-        <span className="hidden md:inline">Talk to Rently</span>
+        <span className="hidden md:inline">Talk to Renty</span>
       </Button>
     </div>
     <ChatWindow isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
