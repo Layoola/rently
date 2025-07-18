@@ -30,7 +30,7 @@ interface TenantProps {
 
 export function TenantProfilePage({ tenant, onBack }: TenantProps) {
   return (
-    <div className="p-6">
+    <div className="p-4 md:p-6">
       {/* Header with back button */}
       <div className="flex items-center mb-6">
         <Button variant="ghost" onClick={onBack} className="mr-4 p-2">
@@ -64,8 +64,8 @@ export function TenantProfilePage({ tenant, onBack }: TenantProps) {
                 <p
                   className={
                     tenant.activeStatus === "Online"
-                      ? "text-black text-sm px-2 rounded-md bg-green-100 text-green-600 border-green-200"
-                      : "text-black text-sm px-2 rounded-md bg-red-100 text-red-600 border-red-200"
+                      ? "text-sm px-2 rounded-md bg-green-100 text-green-600 border-green-200"
+                      : "text-sm px-2 rounded-md bg-red-100 text-red-600 border-red-200"
                   }
                 >
                   {tenant.activeStatus}
@@ -188,7 +188,16 @@ export function TenantProfilePage({ tenant, onBack }: TenantProps) {
 
       <Card className="my-6">
         <div className="flex flex-col md:flex-row gap-4 md:gap-7 justify-between md:items-center px-4">
-          <h2 className="text-lg font-semibold text-gray-900">Payment</h2>
+          <div className="flex justify-between items-center">
+            <h2 className="text-lg font-semibold text-gray-900">Payment</h2>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="flex md:hidden items-center justify-center gap-2"
+            >
+              <Download color="red" className="h-4 w-4" />
+            </Button>
+          </div>
           {/* <TableSearch /> */}
           <div className="w-full max-w-5xl mx-auto">
             <div className="relative">
@@ -200,7 +209,7 @@ export function TenantProfilePage({ tenant, onBack }: TenantProps) {
               <Search className="absolute left-4 top-1/2 w-4 h-4 transform -translate-y-1/2 text-gray-900" />
             </div>
           </div>
-          <div className="flex gap-4 justify-center mx-2">
+          <div className="hidden md:flex gap-4 justify-center mx-2">
             <Button
               size="sm"
               variant="outline"
@@ -250,6 +259,33 @@ export function TenantProfilePage({ tenant, onBack }: TenantProps) {
               ))}
             </TableBody>
           </Table>
+        </div>
+
+        <div className="block md:hidden px-4">
+          {tenant.payments.map((detail: any, index: number) => (
+            <div className="" key={index}>
+              <div className="space-y-5 flex justify-between items-start gap-2">
+                <div className="flex gap-2">
+                  <div className="flex flex-col gap-1">
+                    <p className="text-base text-gray-800">{detail.year}</p>
+                    <Badge
+                      variant={
+                        detail.status === "Paid" ? "default" : "secondary"
+                      }
+                      className={
+                        detail.status === "Paid"
+                          ? "bg-green-100 text-green-600 border-green-200"
+                          : "bg-red-100 text-red-600 border-red-200"
+                      }
+                    >
+                      {detail.status}
+                    </Badge>
+                  </div>
+                </div>
+                <div className="text-base">{detail.amount}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </Card>
 

@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/table";
 import { FileText, Search, Upload } from "lucide-react";
 import React, { useState } from "react";
-import { MaintenanceForm } from "./MaintenanceForm";
 
 const documents = [
   {
@@ -34,29 +33,12 @@ const documents = [
 
 const page = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [maintenance, setMaintenance] = useState(false);
 
-  const handleBackToDocument = () => {
-    setMaintenance(false);
-  };
-
-  if (maintenance) {
-    return <MaintenanceForm onBack={handleBackToDocument} />;
-  }
 
   return (
     <div className="p-6">
-      <div className="flex flex-col md:flex-row justify-between items-start gap-4 md:gap-0 md:items-center mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-4 md:gap-0 md:items-center py-4">
         <h1 className="text-2xl font-bold text-gray-900">Documents</h1>
-        <Button
-          onClick={() => {
-            setMaintenance(true);
-          }}
-          className="bg-red-800 hover:bg-red-900 rounded-full flex items-center"
-        >
-          <Upload />
-          <p>Upload Maintenance Receipt</p>
-        </Button>
       </div>
       <Card className="p-4">
         {/* Search Bar */}
@@ -75,15 +57,15 @@ const page = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Document Name</TableHead>
-                <TableHead>Property</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>Name</TableHead>
+                <TableHead>Type</TableHead>
+                <TableHead>Uploaded On</TableHead>
                 <TableHead>Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody className="text-gray-700">
               {documents.map((document, index) => (
-                <TableRow key={index}>
+                <TableRow key={index} className="">
                   <TableCell className="flex items-center gap-2">
                     <FileText color="blue" size={20} />
                     <p>{document.name}</p>

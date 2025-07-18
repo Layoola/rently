@@ -33,7 +33,7 @@ const TenantSinglePage = ({ tenant, onBack }: TenantProps) => {
 
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6">
       {/* Header with back button */}
       <div className="flex">
         <div className="flex flex-col gap-2">

@@ -123,13 +123,14 @@ export function ElectricityForm({ onBack }: BackProp) {
   };
 
   return (
-    <div className="max-w-3xl flex flex-col justify-start py-6 px-5 md:px-14">
-      <div className="flex gap-2 items-center  mb-6">
-        <Button variant="link" onClick={onBack} className="">
+    <>
+      <div onClick={onBack} className="flex items-center cursor-pointer py-4">
+        <Button variant="link"  className="">
           <ArrowLeft className="h-4 w-4" />
         </Button>
-        <div className="text-xl font-semibold">Utilities</div>
+        <div className="text-sm font-semibold">Utilities</div>
       </div>
+    <div className="max-w-3xl mx-auto flex flex-col justify-start py-6 px-5 md:px-14">
 
       <Card>
         <CardContent>
@@ -231,5 +232,6 @@ export function ElectricityForm({ onBack }: BackProp) {
         </CardContent>
       </Card>
     </div>
+    </>
   );
 }

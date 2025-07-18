@@ -100,14 +100,14 @@ const TenantTable = ({ tenant, viewProfile }: TenantTableProps) => {
       <div className="md:hidden">
         {tenant.tenants.map((detail: any, index: number) => (
           <div key={index} className="bg-white p-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-start justify-between">
               {/* Left side - Avatar, Name, and Status */}
               <div className="flex items-center space-x-3">
-                <Avatar className="h-10 w-10">
+                <Avatar className="h-12 w-12">
                   <AvatarImage src={"/placeholder.svg"} />
                   <AvatarFallback>JA</AvatarFallback>
                 </Avatar>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-1">
                   <span className="font-medium text-sm">{detail.name}</span>
                   <Badge
                     variant={
@@ -126,9 +126,14 @@ const TenantTable = ({ tenant, viewProfile }: TenantTableProps) => {
 
               {/* Right side - Amount */}
               <div className="text-right">
-                <span className="font-semibold text-base">
-                  {/* ₦ {detail.amount} */}
-                </span>
+                  <Button
+                    variant="link"
+                    onClick={() => viewProfile(detail)}
+                    key={index}
+                    className="text-red-800 hover:text-red-900"
+                  >
+                    View Profile
+                  </Button>
               </div>
             </div>
           </div>

@@ -41,7 +41,7 @@ const page = () => {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-4 md:p-6">
       <h1 className="text-2xl font-bold text-gray-900 mb-6">Payments</h1>
       <Card>
         <div className="flex justify-between items-center">

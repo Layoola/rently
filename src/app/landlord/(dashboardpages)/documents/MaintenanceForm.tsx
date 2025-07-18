@@ -125,7 +125,7 @@ export function MaintenanceForm({ onBack }: BackProp) {
   };
 
   return (
-    <div className="max-w-3xl flex flex-col justify-start py-6 px-5 md:px-14">
+    <div className="max-w-3xl flex flex-col justify-start py-4 md:py-6 px-5 md:px-14">
       <div className="flex gap-2 items-center  mb-6">
         <Button variant="ghost" onClick={onBack} className="">
           <ArrowLeft className="h-4 w-4" />
@@ -249,14 +249,12 @@ export function MaintenanceForm({ onBack }: BackProp) {
                 )}
               />
 
-              <div className="w-full justify-center flex ">
-                <Button
-                  type="submit"
-                  className=" bg-red-800 hover:bg-red-900 text-white py-2 px-14 rounded-full"
-                >
-                  Upload & Share with Tenant
-                </Button>
-              </div>
+              <Button
+                type="submit"
+                className=" bg-red-800 w-full hover:bg-red-900 text-white py-2 rounded-full"
+              >
+                Upload & Share with Tenant
+              </Button>
             </form>
           </Form>
         </CardContent>

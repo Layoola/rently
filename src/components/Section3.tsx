@@ -46,7 +46,7 @@ const Section3 = () => {
 
         {/* Steps */}
         <div className="space-y-12">
-          {steps.map((step, index) => {
+          {steps.map((step) => {
             const IconComponent = step.icon
             return (
               <div key={step.id} className="flex flex-col items-center text-center">
